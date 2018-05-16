@@ -1,0 +1,24 @@
+#logging:
+#    file: /home/data/gpdb-jdbc-test/run.log
+
+spring:
+    datasource:
+        username: user
+        password: pwd
+        type: com.zaxxer.hikari.HikariDataSource
+        url: jdbc:postgresql://xx.xx.xx:5432/demo?useUnicode=true&characterEncoding=UTF-8
+        driverClassName: org.postgresql.Driver
+        maximumPoolSize: 64
+    main:
+        web_environment: false
+
+        
+mybatis:
+    pgsql:
+        typeAliasesPackage: com.kingour.jdbc.pgdb.dao.pgsql.pojo
+        mapperLocations: classpath:/com/kingour/jdbc/**/*.xml
+        configLocation: classpath:/mybatis-config.xml
+        
+app:
+    conf:
+        version: 1
