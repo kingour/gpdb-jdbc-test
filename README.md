@@ -1,6 +1,31 @@
 # 
 This a simple project which is used to test greenplum with jdbc connection pool
 
+## DB define
+```
+CREATE TABLE demo_prt (
+    id varchar not null,
+    versionId varchar NOT NULL,
+    date date NOT NULL,
+    update timestamp DEFAULT current_timestamp,
+    pv bigint default null
+) 
+DISTRIBUTED BY (id, versionId) 
+PARTITION BY RANGE (date) 
+( START (date '2018-04-21') INCLUSIVE
+   END (date '2018-05-21') EXCLUSIVE
+   EVERY (INTERVAL '1 day') );
+   
+ CREATE TABLE demo (
+    id varchar not null,
+    versionId varchar NOT NULL,
+    date date NOT NULL,
+    update timestamp DEFAULT current_timestamp,
+    pv bigint default null
+) 
+DISTRIBUTED BY (id, versionId);
+```
+
 ## How To Config
 
 ```
